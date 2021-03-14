@@ -43,10 +43,45 @@ public class AlertsActivity extends AppCompatActivity{
 
         final AssetManager mgr = getAssets();
         Typeface tf = Typeface.createFromAsset(mgr, "ahronbd.ttf");
-
+        /*
         tv_3 = findViewById(R.id.tv_3);
         tv_3.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         tv_3.setTypeface(tf);
+
+        tv_7 = findViewById(R.id.tv_7);
+        tv_7.setTypeface(tf);
+        tv_8 = findViewById(R.id.tv_8);
+        tv_8.setTypeface(tf);
+        tv_9 = findViewById(R.id.tv_9);
+        tv_9.setTypeface(tf);
+        tv_10 = findViewById(R.id.tv_10);
+        tv_10.setTypeface(tf);
+        tv_11 = findViewById(R.id.tv_11);
+        tv_11.setTypeface(tf);
+        tv_12 = findViewById(R.id.tv_12);
+        tv_12.setTypeface(tf);
+        btn_1 = findViewById(R.id.btn_1);
+        btn_1.setTypeface(tf);
+        btn_2 = findViewById(R.id.btn_2);
+        btn_2.setTypeface(tf);
+        btn_3 = findViewById(R.id.btn_3);
+        btn_3.setTypeface(tf);
+        btn_4 = findViewById(R.id.btn_4);
+        btn_4.setTypeface(tf);
+        btn_5 = findViewById(R.id.btn_5);
+        btn_5.setTypeface(tf);
+        btn_6 = findViewById(R.id.btn_6);
+        btn_6.setTypeface(tf);
+
+        btn_20 = findViewById(R.id.btn_20);
+        btn_20.setTypeface(tf);
+        tv_20 = findViewById(R.id.tv_20);
+        tv_20.setTypeface(tf);
+        btn_21 = findViewById(R.id.btn_21);
+        btn_21.setTypeface(tf);
+        tv_21 = findViewById(R.id.tv_21);
+        tv_21.setTypeface(tf);
+         */
 
         notification = findViewById(R.id.notification);
         mainpage = findViewById(R.id.mainpage);
@@ -124,25 +159,25 @@ public class AlertsActivity extends AppCompatActivity{
                 getResources().getDrawable(R.mipmap.camera1), getResources().getDrawable(R.drawable.btn_red));
         msgList.add(locationChanged);
         Message connect = new Message("", "00:00", "Connected with your mailbox!",
-                getResources().getDrawable(R.mipmap.connect1), getResources().getDrawable(R.drawable.btn_1));
+                getResources().getDrawable(R.mipmap.parcel1), getResources().getDrawable(R.drawable.btn_green));
         msgList.add(connect);
         Message disconnect = new Message("", "00:00", "Lost connection with your mailbox!",
-                getResources().getDrawable(R.mipmap.disconnect1), getResources().getDrawable(R.drawable.btn_red));
+                getResources().getDrawable(R.mipmap.parcel1), getResources().getDrawable(R.drawable.btn_red));
         msgList.add(disconnect);
         Message resetPassword = new Message("", "00:00", "Reset password successfully!",
-                getResources().getDrawable(R.mipmap.reset1), getResources().getDrawable(R.drawable.btn_green));
+                getResources().getDrawable(R.mipmap.parcel1), getResources().getDrawable(R.drawable.btn_green));
         msgList.add(resetPassword);
         Message readyUpdate = new Message("", "00:00", "Software is ready for update!",
-                getResources().getDrawable(R.mipmap.update1), getResources().getDrawable(R.drawable.btn_1));
+                getResources().getDrawable(R.mipmap.parcel1), getResources().getDrawable(R.drawable.btn_1));
         msgList.add(readyUpdate);
         Message paired = new Message("", "00:00", "Mailbox has been added to your account!",
-                getResources().getDrawable(R.mipmap.addmailbox1), getResources().getDrawable(R.drawable.btn_green));
+                getResources().getDrawable(R.mipmap.parcel1), getResources().getDrawable(R.drawable.btn_green));
         msgList.add(paired);
         Message removed = new Message("", "00:00", "Mailbox has been removed from your account",
-                getResources().getDrawable(R.mipmap.removemailbox1), getResources().getDrawable(R.drawable.btn_1));
+                getResources().getDrawable(R.mipmap.parcel1), getResources().getDrawable(R.drawable.btn_1));
         msgList.add(removed);
         Message noCharge = new Message("", "00:00", "Mailbox stops working due to low battery.",
-                getResources().getDrawable(R.mipmap.dead1), getResources().getDrawable(R.drawable.btn_red));
+                getResources().getDrawable(R.mipmap.parcel1), getResources().getDrawable(R.drawable.btn_red));
         msgList.add(noCharge);
     }
 }

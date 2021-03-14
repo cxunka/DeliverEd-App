@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D9DFEA"
+    android:background="#FFFFFF"
     tools:context=".AccountActivity">
 
     <RelativeLayout
@@ -116,7 +116,7 @@
         android:text="Settings"
         android:textAllCaps="false"
         android:textSize="18sp"
-        android:transitionName="settings" />
+        android:transitionName="userguide" />
 
     <RelativeLayout
         android:layout_width="match_parent"

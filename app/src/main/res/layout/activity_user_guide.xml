@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D9DFEA"
+    android:background="#FFFFFF"
     tools:context=".UserGuideActivity">
 
     <RelativeLayout
@@ -59,13 +59,13 @@
         android:id="@+id/et_1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:textColor="#6C8AC9"
+        android:textColor="#FFFFFF"
         android:hint="Please type your message here"
         android:layout_above="@id/btn_1"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:background="@drawable/btn_2"
-        android:textColorHint="#D2D8E3"
+        android:background="@drawable/btn_1"
+        android:textColorHint="#FFFFFF"
         android:layout_marginBottom="20dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp" />
@@ -107,7 +107,7 @@
         android:background="#6C8AC9"
         android:layout_margin="20dp"
         android:dividerHeight="15dp"
-        android:divider="#D9DFEA">
+        android:divider="#FFFFFF">
     </ListView>
     <View
         android:id="@+id/view_1"
