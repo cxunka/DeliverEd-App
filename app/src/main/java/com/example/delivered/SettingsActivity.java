@@ -17,8 +17,8 @@ import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity{
     private TextView mainpage,notification,account;
-    private TextView settings0, settings1;
-    private TextView settings2,home;
+    private TextView settings, settings1;
+    private TextView settings2,home,tv_11,tv_12,tv_13,tv_14,tv_15,tv_16,tv_17,tv_18,tv_19,tv_20,tv_21;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,33 @@ public class SettingsActivity extends AppCompatActivity{
         AssetManager mgr = getAssets();
         Typeface tf = Typeface.createFromAsset(mgr, "ahronbd.ttf");
 
-        settings0 = findViewById(R.id.settings0);
-        settings1 = findViewById(R.id.settings1);
+
+        tv_11 = findViewById(R.id.tv_11);
+        tv_11.setTypeface(tf);
+        tv_12 = findViewById(R.id.tv_12);
+        tv_12.setTypeface(tf);
+        tv_13 = findViewById(R.id.tv_13);
+        tv_13.setTypeface(tf);
+        tv_14 = findViewById(R.id.tv_14);
+        tv_14.setTypeface(tf);
+        tv_15 = findViewById(R.id.tv_15);
+        tv_15.setTypeface(tf);
+        tv_16 = findViewById(R.id.tv_16);
+        tv_16.setTypeface(tf);
+        tv_17 = findViewById(R.id.tv_17);
+        tv_17.setTypeface(tf);
+        tv_18 = findViewById(R.id.tv_18);
+        tv_18.setTypeface(tf);
+        tv_19 = findViewById(R.id.tv_19);
+        tv_19.setTypeface(tf);
+        tv_20 = findViewById(R.id.tv_20);
+        tv_20.setTypeface(tf);
+        tv_21 = findViewById(R.id.tv_21);
+        tv_21.setTypeface(tf);
+
+        settings = findViewById(R.id.settings);
+        home = findViewById(R.id.home);
+        home.setTypeface(tf);
         mainpage = findViewById(R.id.mainpage);
         mainpage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +82,7 @@ public class SettingsActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Pair pair1 = new Pair<>(account, ViewCompat.getTransitionName(account));
-                Pair pair2 = new Pair<>(settings0, ViewCompat.getTransitionName(settings0));
+                Pair pair2 = new Pair<>(settings, ViewCompat.getTransitionName(settings));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(SettingsActivity.this, pair1, pair2);
                 Intent intent = new Intent(SettingsActivity.this, AccountActivity.class);
                 ActivityCompat.startActivity(SettingsActivity.this, intent, transitionActivityOptions.toBundle());
