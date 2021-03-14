@@ -55,11 +55,27 @@ public class DevicePageActivity extends AppCompatActivity {
                 Toast.makeText(DevicePageActivity.this,radioButton.getText(),Toast.LENGTH_SHORT).show();
             }
         });
+        //------------------------------------------
         open_device = findViewById(R.id.open_device);
-        open_device.setTypeface(tf);
+        open_device.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Post post = new Post();
+                post.run(1);
+                Toast.makeText(DevicePageActivity.this, "Successfully open device!", Toast.LENGTH_SHORT).show();
+            }
+        });
         lock_device = findViewById(R.id.lock_device);
+        lock_device.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Post post = new Post();
+                post.run(0);
+                Toast.makeText(DevicePageActivity.this, "Successfully lock device!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        open_device.setTypeface(tf);
         lock_device.setTypeface(tf);
-
+        //-----------------------------------------
         tv_9 = findViewById(R.id.tv_9);
         tv_9.setTypeface(tf);
         tv_11 = findViewById(R.id.tv_11);
@@ -102,7 +118,5 @@ public class DevicePageActivity extends AppCompatActivity {
         home = findViewById(R.id.home);
         home.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         home.setTypeface(tf);
-
-
     }
 }
