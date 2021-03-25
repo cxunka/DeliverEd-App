@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextView tv_2;
     private TextView tv_3;
-    private TextView tv_5, tv_6;
+    private TextView tv_5;
     private TransitionButton transitionButton;
 
     @Override
@@ -54,14 +54,6 @@ public class LoginActivity extends AppCompatActivity {
         });
         tv_5.setTypeface(tf);
 
-        tv_6 = findViewById(R.id.tv_6);
-        tv_6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(LoginActivity.this, "User Guide is still building.", Toast.LENGTH_SHORT).show();
-            }
-        });
-        tv_6.setTypeface(tf);
 
         transitionButton = findViewById(R.id.transitionButton);
         transitionButton.setOnClickListener(new View.OnClickListener() {

@@ -21,7 +21,7 @@ public class HomePageActivity extends AppCompatActivity {
     private TextView nowlocation,notification,account,mainpage;
     private TextView home;
 
-    private Button DHome,btn_2,btn_3;
+    private Button DHome,Adddevice,btn_3;
     private Button btn_11,btn_111;
 
     @Override
@@ -84,14 +84,18 @@ public class HomePageActivity extends AppCompatActivity {
         btn_111 = findViewById(R.id.btn_111);
         btn_111.setTypeface(tf);
 
-        btn_2 = findViewById(R.id.btn_2);
-        btn_2.setOnClickListener(new View.OnClickListener() {
+
+        Adddevice = findViewById(R.id.Adddevice);
+        Adddevice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomePageActivity.this,"Adding Device is still building.",Toast.LENGTH_SHORT).show();
+                Pair pair1 = new Pair<>(Adddevice, ViewCompat.getTransitionName(Adddevice));
+                ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(HomePageActivity.this, pair1);
+                Intent intent = new Intent(HomePageActivity.this, AddDeviceActivity.class);
+                ActivityCompat.startActivity(HomePageActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
-        btn_2.setTypeface(tf);
+        Adddevice.setTypeface(tf);
 
         btn_3 = findViewById(R.id.btn_3);
         btn_3.setOnClickListener(new View.OnClickListener() {
