@@ -2,6 +2,12 @@ package com.example.delivered;
 
 import android.widget.Toast;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -71,7 +77,6 @@ public class HttpClient {
                 System.out.println("POST CODE 200");
                 System.out.println(response);
             }
-            response = new StringBuilder(conn.getResponseMessage());
             // Close Connection
             conn.disconnect();
 
@@ -93,6 +98,15 @@ public class HttpClient {
                 ex.printStackTrace();
             }
         }
-        return response.toString();
+        JsonParser parser = new JsonParser();
+        JsonElement element = parser.parse(String.valueOf(response));
+        String str = "";
+        if (element.isJsonObject()) {
+            JsonObject object = element.getAsJsonObject();
+
+            str = object.get("return_value").getAsString();
+        }
+
+        return str;
     }
 }

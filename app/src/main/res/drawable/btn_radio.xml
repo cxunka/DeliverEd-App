@@ -10,6 +10,11 @@
                 android:radius="30dp">
 
             </corners>
+            <stroke
+                android:color="#BAC5DF"
+                android:width="3dp">
+
+            </stroke>
         </shape>
     </item>
     <item android:state_checked="false">

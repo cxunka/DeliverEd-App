@@ -113,6 +113,7 @@ public class AddDeviceActivity extends AppCompatActivity {
                 Intent intent = new Intent(AddDeviceActivity.this, HomePageActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 intent.putExtra("msg",id);
+                id = null;
                 textView.setText("waiting for response...");
                 startActivity(intent);
             }

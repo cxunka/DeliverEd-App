@@ -24,7 +24,6 @@ public class AccountActivity extends AppCompatActivity {
 
     private TextView home;
     private Button userguide;
-    private Button settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,18 +112,6 @@ public class AccountActivity extends AppCompatActivity {
         });
         userguide.setTypeface(tf);
 
-        settings = findViewById(R.id.settings);
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Pair pair1 = new Pair<>(settings, ViewCompat.getTransitionName(settings));
-                ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(AccountActivity.this, pair1);
-                Intent intent = new Intent(AccountActivity.this, SettingsActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                ActivityCompat.startActivity(AccountActivity.this, intent, transitionActivityOptions.toBundle());
-            }
-        });
-        settings.setTypeface(tf);
 
     }
 }

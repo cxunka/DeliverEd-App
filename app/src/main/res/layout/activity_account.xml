@@ -75,7 +75,7 @@
         android:id="@+id/btn_2"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@+id/settings"
+        android:layout_below="@+id/userguide"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="80dp"
@@ -102,21 +102,6 @@
         android:textSize="18sp"
         android:transitionName="userguide" />
 
-    <Button
-        android:id="@+id/settings"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_below="@+id/userguide"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="80dp"
-        android:background="@drawable/btn_1"
-        android:drawableLeft="@mipmap/setting"
-        android:paddingLeft="10dp"
-        android:text="Settings"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:transitionName="settings" />
 
     <RelativeLayout
         android:layout_width="match_parent"

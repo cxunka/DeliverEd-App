@@ -143,7 +143,7 @@ public class DevicePageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DevicePageActivity.this, HomePageActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                intent.putExtra("msg",tv_7.getText());
+                intent.putExtra("msg","remove r0");
                 startActivity(intent);
             }
         });

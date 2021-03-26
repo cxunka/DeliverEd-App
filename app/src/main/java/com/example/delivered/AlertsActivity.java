@@ -199,9 +199,9 @@ public class AlertsActivity extends AppCompatActivity{
         Btn_sendRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String url = "https://api.particle.io/v1/devices/2b003e000447393035313138";
+                String url = "https://api.particle.io/v1/devices/2b003e000447393035313138/LEDStatus";
                 // {"arg":"request"}
-                String url = "http://httpbin.org/post";
+//                String url = "http://httpbin.org/post";
                 String json = "{\"arg\":\"request\"}";
                 String notification = HttpClient.send(url, json);
                 Toast.makeText(AlertsActivity.this, notification, Toast.LENGTH_SHORT).show();
@@ -240,12 +240,14 @@ public class AlertsActivity extends AppCompatActivity{
     private void changeMsgList(String content){
         switch (content) {
             case "02":
+            case "0":
                 Message locked = new Message("", getTime(), "Your mailbox has been locked!",
                         getResources().getDrawable(R.mipmap.lock1), getResources().getDrawable(R.drawable.btn_1), View.VISIBLE);
                 msgList.add(locked);
                 Collections.reverse(msgList);
                 break;
             case "03":
+            case "1":
                 Message unlocked = new Message("", getTime(), "Your mailbox was accessed!",
                         getResources().getDrawable(R.mipmap.key1), getResources().getDrawable(R.drawable.btn_green), View.VISIBLE);
                 msgList.add(unlocked);
