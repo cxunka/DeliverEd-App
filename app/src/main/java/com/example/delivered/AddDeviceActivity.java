@@ -2,6 +2,7 @@ package com.example.delivered;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
@@ -12,6 +13,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -25,6 +27,9 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 public class AddDeviceActivity extends AppCompatActivity {
 
     private TextView mainpage, notification, account;
@@ -34,6 +39,7 @@ public class AddDeviceActivity extends AppCompatActivity {
     CameraSource cameraSource;
     BarcodeDetector barcodeDetector;
     private Button button;
+    private String id;
 
 
     @Override
@@ -90,6 +96,7 @@ public class AddDeviceActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             textView.setText(qrCodes.valueAt(0).displayValue);
+                            id = qrCodes.valueAt(0).displayValue;
                         }
                     });
                 }
@@ -100,6 +107,16 @@ public class AddDeviceActivity extends AppCompatActivity {
         textView1.setTypeface(tf);
         button = findViewById(R.id.button);
         button.setTypeface(tf);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddDeviceActivity.this, HomePageActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent.putExtra("msg",id);
+                textView.setText("waiting for response...");
+                startActivity(intent);
+            }
+        });
         Adddevice = findViewById(R.id.Adddevice);
         mainpage = findViewById(R.id.mainpage);
         mainpage.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +126,7 @@ public class AddDeviceActivity extends AppCompatActivity {
                 Pair pair2 = new Pair<>(Adddevice, ViewCompat.getTransitionName(Adddevice));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(AddDeviceActivity.this, pair1, pair2);
                 Intent intent = new Intent(AddDeviceActivity.this, HomePageActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(AddDeviceActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -119,6 +137,7 @@ public class AddDeviceActivity extends AppCompatActivity {
                 Pair pair1 = new Pair<>(notification, ViewCompat.getTransitionName(notification));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(AddDeviceActivity.this, pair1);
                 Intent intent = new Intent(AddDeviceActivity.this, AlertsActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(AddDeviceActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -130,6 +149,7 @@ public class AddDeviceActivity extends AppCompatActivity {
                 Pair pair1 = new Pair<>(account, ViewCompat.getTransitionName(account));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(AddDeviceActivity.this, pair1);
                 Intent intent = new Intent(AddDeviceActivity.this, AccountActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(AddDeviceActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });

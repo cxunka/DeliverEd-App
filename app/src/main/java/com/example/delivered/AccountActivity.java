@@ -53,6 +53,7 @@ public class AccountActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(AccountActivity.this,"Successfully Log off.",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(AccountActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -70,6 +71,7 @@ public class AccountActivity extends AppCompatActivity {
                 Pair pair3 = new Pair<>(account, ViewCompat.getTransitionName(account));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(AccountActivity.this, pair1, pair2, pair3);
                 Intent intent = new Intent(AccountActivity.this, HomePageActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(AccountActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -82,6 +84,7 @@ public class AccountActivity extends AppCompatActivity {
                 Pair pair3 = new Pair<>(account, ViewCompat.getTransitionName(account));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(AccountActivity.this, pair1, pair2, pair3);
                 Intent intent = new Intent(AccountActivity.this, AlertsActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(AccountActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -104,6 +107,7 @@ public class AccountActivity extends AppCompatActivity {
                 Pair pair1 = new Pair<>(userguide, ViewCompat.getTransitionName(userguide));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(AccountActivity.this, pair1);
                 Intent intent = new Intent(AccountActivity.this, UserGuideActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(AccountActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -116,6 +120,7 @@ public class AccountActivity extends AppCompatActivity {
                 Pair pair1 = new Pair<>(settings, ViewCompat.getTransitionName(settings));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(AccountActivity.this, pair1);
                 Intent intent = new Intent(AccountActivity.this, SettingsActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(AccountActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });

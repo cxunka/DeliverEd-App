@@ -47,12 +47,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         this.msgList = msgList;
     }
 
+    @NonNull
     @Override
 
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notification_item,parent,false);
-        ViewHolder holder = new ViewHolder(view);
-        return holder;
+        return new ViewHolder(view);
     }
 
     @Override
@@ -62,6 +62,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         holder.msgContent.setCompoundDrawablesWithIntrinsicBounds(msg.getImageDrawable(),null,null,null);
         holder.msgContent.setText(msg.getContentId());
         holder.msgTime.setText(msg.getTime());
+        holder.msgContent.setVisibility(msg.getVisibility());
+        holder.msgTime.setVisibility(msg.getVisibility());
         final AssetManager mgr = context.getAssets();
         Typeface tf = Typeface.createFromAsset(mgr, "ahronbd.ttf");
         holder.msgContent.setTypeface(tf);

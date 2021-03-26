@@ -1,6 +1,8 @@
 package com.example.delivered;
 
 import android.graphics.drawable.Drawable;
+import android.transition.Visibility;
+import android.view.View;
 
 public class Message {
     private String deviceName;
@@ -8,13 +10,15 @@ public class Message {
     private String contentId;
     private Drawable imageDrawable;
     private Drawable backGroundDrawable;
+    private int visibility;
 
-    public Message(String deviceName, String time, String contentId, Drawable imageDrawable, Drawable backGroundDrawable){
+    public Message(String deviceName, String time, String contentId, Drawable imageDrawable, Drawable backGroundDrawable, int visibility){
         this.deviceName = deviceName;
         this.time = time;
         this.contentId = contentId;
         this.imageDrawable = imageDrawable;
         this.backGroundDrawable = backGroundDrawable;
+        this.visibility = visibility;
     }
 
     public void setContentId(String contentId) {
@@ -55,5 +59,13 @@ public class Message {
 
     public Drawable getBackGroundDrawable() {
         return backGroundDrawable;
+    }
+
+    public void setVisibility(int visibility) {
+        this.visibility = visibility;
+    }
+
+    public int getVisibility() {
+        return visibility;
     }
 }

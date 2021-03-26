@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_below="@id/tv_11"
-        android:layout_marginTop="20dp"
+
         android:layout_centerHorizontal="true">
 
         <RadioButton
@@ -152,6 +152,33 @@
             android:paddingLeft="10dp"
             />
     </RadioGroup>
+
+    <View
+        android:id="@+id/view_5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/mRg1"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:background="#6C8AC9"></View>
+
+    <Button
+        android:id="@+id/btn_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_5"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/btn_red"
+        android:drawableLeft="@mipmap/removedevice1"
+        android:paddingLeft="10dp"
+        android:text="Remove Device"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
     <RelativeLayout
         android:layout_width="match_parent"

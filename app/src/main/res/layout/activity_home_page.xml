@@ -57,54 +57,165 @@
 
     </View>
 
-    <Button
-        android:id="@+id/DHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view_1"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="80dp"
-        android:background="@drawable/btn_green"
-        android:drawableLeft="@mipmap/family1"
-        android:drawableRight="@mipmap/rightc"
-        android:paddingLeft="10dp"
-        android:text="DHome \n ID: 123456"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:transitionName="DHome" />
+<!--    <android.support.v7.widget.RecyclerView-->
+<!--        android:id="@+id/DHome_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@+id/tv_2"-->
+<!--        android:layout_above= "@+id/view_2"/>-->
 
-    <Button
-        android:id="@+id/btn_11"
+    <ScrollView
+        android:id="@+id/ScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/DHome"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="80dp"
-        android:background="@drawable/btn_green"
-        android:drawableLeft="@mipmap/family1"
-        android:drawableRight="@mipmap/rightc"
-        android:paddingLeft="10dp"
-        android:text="DHome \n ID: 121899"
-        android:textAllCaps="false"
-        android:textSize="18sp" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_2"
+        android:layout_above= "@+id/view_2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+        <LinearLayout
+            android:id="@+id/device_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:animateLayoutChanges="true">
+            <Button
+                android:id="@+id/DHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view_1"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="80dp"
+                android:background="@drawable/btn_green"
+                android:drawableLeft="@mipmap/family1"
+                android:drawableRight="@mipmap/rightc"
+                android:paddingLeft="10dp"
+                android:text="DHome \n ID: 12345"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:transitionName="DHome"
+                android:visibility="gone"/>
+            <Button
+                android:id="@+id/DHome1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view_1"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="80dp"
+                android:background="@drawable/btn_green"
+                android:drawableLeft="@mipmap/family1"
+                android:drawableRight="@mipmap/rightc"
+                android:paddingLeft="10dp"
+                android:text="DHome \n ID: 54321"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:transitionName="DHome"
+                android:visibility="gone"/>
+            <Button
+                android:id="@+id/DHome2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view_1"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="80dp"
+                android:background="@drawable/btn_green"
+                android:drawableLeft="@mipmap/family1"
+                android:drawableRight="@mipmap/rightc"
+                android:paddingLeft="10dp"
+                android:text="DHome \n ID: 00002"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:transitionName="DHome"
+                android:visibility="gone"/>
+            <Button
+                android:id="@+id/DHome3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view_1"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="80dp"
+                android:background="@drawable/btn_green"
+                android:drawableLeft="@mipmap/family1"
+                android:drawableRight="@mipmap/rightc"
+                android:paddingLeft="10dp"
+                android:text="DHome \n ID: 00003"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:transitionName="DHome"
+                android:visibility="gone"/>
+            <Button
+                android:id="@+id/DHome4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view_1"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="80dp"
+                android:background="@drawable/btn_green"
+                android:drawableLeft="@mipmap/family1"
+                android:drawableRight="@mipmap/rightc"
+                android:paddingLeft="10dp"
+                android:text="DHome \n ID: 00004"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:transitionName="DHome"
+                android:visibility="gone"/>
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_111"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_11"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="80dp"
-        android:background="@drawable/btn_green"
-        android:drawableLeft="@mipmap/family1"
-        android:drawableRight="@mipmap/rightc"
-        android:paddingLeft="10dp"
-        android:text="DHome \n ID: 120032"
-        android:textAllCaps="false"
-        android:textSize="18sp" />
+    </ScrollView>
+
+<!--    <Button-->
+<!--        android:id="@+id/DHome"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/view_1"-->
+<!--        android:layout_marginLeft="80dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginRight="80dp"-->
+<!--        android:background="@drawable/btn_green"-->
+<!--        android:drawableLeft="@mipmap/family1"-->
+<!--        android:drawableRight="@mipmap/rightc"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:text="DHome \n ID: 123456"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textSize="18sp"-->
+<!--        android:transitionName="DHome" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_11"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/DHome"-->
+<!--        android:layout_marginLeft="80dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginRight="80dp"-->
+<!--        android:background="@drawable/btn_green"-->
+<!--        android:drawableLeft="@mipmap/family1"-->
+<!--        android:drawableRight="@mipmap/rightc"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:text="DHome \n ID: 121899"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textSize="18sp" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_111"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/btn_11"-->
+<!--        android:layout_marginLeft="80dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginRight="80dp"-->
+<!--        android:background="@drawable/btn_green"-->
+<!--        android:drawableLeft="@mipmap/family1"-->
+<!--        android:drawableRight="@mipmap/rightc"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:text="DHome \n ID: 120032"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textSize="18sp" />-->
 
 
     <View
@@ -113,9 +224,9 @@
         android:layout_height="1dp"
         android:layout_above="@id/Adddevice"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="100dp"
         android:layout_marginRight="30dp"
-        android:background="#6C8AC9">
+        android:background="#6C8AC9"
+        android:padding="30dp">
 
     </View>
 
@@ -123,10 +234,11 @@
         android:id="@+id/Adddevice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_3"
+        android:layout_above="@+id/navigationbar"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="80dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_1"
         android:drawableLeft="@mipmap/adddevice1"
         android:paddingLeft="10dp"
@@ -136,22 +248,7 @@
         android:textSize="18sp"
         android:transitionName="Adddevice" />
 
-    <Button
-        android:id="@+id/btn_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/navigationbar"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/btn_1"
-        android:drawableLeft="@mipmap/removedevice1"
-        android:paddingLeft="10dp"
-        android:text="Remove Device"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+
 
     <RelativeLayout
         android:id="@+id/navigationbar"

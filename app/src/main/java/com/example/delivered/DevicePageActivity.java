@@ -1,5 +1,6 @@
 package com.example.delivered;
 
+import android.bluetooth.BluetoothClass;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
@@ -9,12 +10,25 @@ import android.support.v4.util.Pair;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.vision.Detector;
+import com.google.android.gms.vision.barcode.Barcode;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 public class DevicePageActivity extends AppCompatActivity {
 
@@ -24,6 +38,7 @@ public class DevicePageActivity extends AppCompatActivity {
     private RadioButton lock_device, open_device;
     private TextView mainpage,notification,account;
     private TextView home,DHome;
+    private Button btn_3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +105,7 @@ public class DevicePageActivity extends AppCompatActivity {
                 Pair pair2 = new Pair<>(DHome, ViewCompat.getTransitionName(DHome));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(DevicePageActivity.this, pair1, pair2);
                 Intent intent = new Intent(DevicePageActivity.this, HomePageActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(DevicePageActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -100,6 +116,7 @@ public class DevicePageActivity extends AppCompatActivity {
                 Pair pair1 = new Pair<>(notification, ViewCompat.getTransitionName(notification));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(DevicePageActivity.this, pair1);
                 Intent intent = new Intent(DevicePageActivity.this, AlertsActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(DevicePageActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -111,6 +128,7 @@ public class DevicePageActivity extends AppCompatActivity {
                 Pair pair1 = new Pair<>(account, ViewCompat.getTransitionName(account));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(DevicePageActivity.this, pair1);
                 Intent intent = new Intent(DevicePageActivity.this, AccountActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(DevicePageActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -118,5 +136,17 @@ public class DevicePageActivity extends AppCompatActivity {
         home = findViewById(R.id.home);
         home.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         home.setTypeface(tf);
+
+        btn_3 = findViewById(R.id.btn_3);
+        btn_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DevicePageActivity.this, HomePageActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent.putExtra("msg",tv_7.getText());
+                startActivity(intent);
+            }
+        });
+        btn_3.setTypeface(tf);
     }
 }

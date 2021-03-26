@@ -93,6 +93,7 @@ public class UserGuideActivity extends AppCompatActivity {
                 Pair pair1 = new Pair<>(mainpage, ViewCompat.getTransitionName(mainpage));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(UserGuideActivity.this, pair1);
                 Intent intent = new Intent(UserGuideActivity.this, HomePageActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(UserGuideActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -103,6 +104,7 @@ public class UserGuideActivity extends AppCompatActivity {
                 Pair pair1 = new Pair<>(notification, ViewCompat.getTransitionName(notification));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(UserGuideActivity.this, pair1);
                 Intent intent = new Intent(UserGuideActivity.this, AlertsActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(UserGuideActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -115,6 +117,7 @@ public class UserGuideActivity extends AppCompatActivity {
                 Pair pair2 = new Pair<>(userguide, ViewCompat.getTransitionName(userguide));
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(UserGuideActivity.this, pair1, pair2);
                 Intent intent = new Intent(UserGuideActivity.this, AccountActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 ActivityCompat.startActivity(UserGuideActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
