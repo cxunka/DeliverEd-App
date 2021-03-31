@@ -44,6 +44,13 @@ public class AlertsActivity extends AppCompatActivity{
     private List<Message> msgList = new ArrayList<>();
     private TextView Btn_sendRequest;
 
+    private void add(Message message){
+        List<Message> newList = new ArrayList<>();
+        newList.add(message);
+        newList.addAll(msgList);
+        msgList = newList;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +105,32 @@ public class AlertsActivity extends AppCompatActivity{
         home.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         home.setTypeface(tf);
 
-//        initMsg();
+        initMsg();
+        Collections.reverse(msgList);
+        if (Variable.unlocked){
+            Message unlocked = new Message("", getTime(), "Your mailbox was accessed!",
+                    getResources().getDrawable(R.mipmap.key1), getResources().getDrawable(R.drawable.btn_green), View.VISIBLE);
+            add(unlocked);
+            Variable.unlocked = false;
+        }
+        if (Variable.locked){
+            Message locked = new Message("", getTime(), "Your mailbox has been locked!",
+                    getResources().getDrawable(R.mipmap.lock1), getResources().getDrawable(R.drawable.btn_1), View.VISIBLE);
+            add(locked);
+            Variable.locked = false;
+        }
+        if (Variable.removed){
+            Message removed = new Message("", getTime(), "Mailbox has been removed from your account",
+                    getResources().getDrawable(R.mipmap.removemailbox1), getResources().getDrawable(R.drawable.btn_1), View.VISIBLE);
+            add(removed);
+            Variable.removed = false;
+        }
+        if (Variable.added){
+            Message paired = new Message("", getTime(), "Mailbox has been added to your account!",
+                    getResources().getDrawable(R.mipmap.addmailbox1), getResources().getDrawable(R.drawable.btn_green), View.VISIBLE);
+            add(paired);
+            Variable.added = false;
+        }
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -126,6 +158,36 @@ public class AlertsActivity extends AppCompatActivity{
                 showResponse(notification);
             }
         });
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        String id = intent.getStringExtra("msg");
+        if (Variable.added){
+            Message paired = new Message("", getTime(), "Mailbox has been added to your account!",
+                    getResources().getDrawable(R.mipmap.addmailbox1), getResources().getDrawable(R.drawable.btn_green), View.VISIBLE);
+            add(paired);
+            Variable.added = false;
+        }
+        if (Variable.unlocked){
+            Message unlocked = new Message("", getTime(), "Your mailbox was accessed!",
+                    getResources().getDrawable(R.mipmap.key1), getResources().getDrawable(R.drawable.btn_green), View.VISIBLE);
+            add(unlocked);
+            Variable.unlocked = false;
+        }
+        if (Variable.locked){
+            Message locked = new Message("", getTime(), "Your mailbox has been locked!",
+                    getResources().getDrawable(R.mipmap.lock1), getResources().getDrawable(R.drawable.btn_1), View.VISIBLE);
+            add(locked);
+            Variable.locked = false;
+        }
+        if (Variable.removed){
+            Message removed = new Message("", getTime(), "Mailbox has been removed from your account",
+                    getResources().getDrawable(R.mipmap.removemailbox1), getResources().getDrawable(R.drawable.btn_1), View.VISIBLE);
+            add(removed);
+            Variable.removed = false;
+        }
     }
 
     @Override
@@ -241,95 +303,82 @@ public class AlertsActivity extends AppCompatActivity{
         switch (content) {
             case "02":
             case "0":
+            case "lock":
                 Message locked = new Message("", getTime(), "Your mailbox has been locked!",
                         getResources().getDrawable(R.mipmap.lock1), getResources().getDrawable(R.drawable.btn_1), View.VISIBLE);
-                msgList.add(locked);
-                Collections.reverse(msgList);
+                add(locked);
                 break;
             case "03":
             case "1":
+            case "unlock":
                 Message unlocked = new Message("", getTime(), "Your mailbox was accessed!",
                         getResources().getDrawable(R.mipmap.key1), getResources().getDrawable(R.drawable.btn_green), View.VISIBLE);
-                msgList.add(unlocked);
-                Collections.reverse(msgList);
+                add(unlocked);
                 break;
             case "04":
                 Message receivedParcel = new Message("", getTime(), "A parcel was delivered to you!",
                         getResources().getDrawable(R.mipmap.parcel1), getResources().getDrawable(R.drawable.btn_green), View.VISIBLE);
-                msgList.add(receivedParcel);
-                Collections.reverse(msgList);
+                add(receivedParcel);
                 break;
             case "10":
                 Message full = new Message("", getTime(), "Your mailbox is full!",
                         getResources().getDrawable(R.mipmap.fullmoon1), getResources().getDrawable(R.drawable.btn_red), View.VISIBLE);
-                msgList.add(full);
-                Collections.reverse(msgList);
+                add(full);
                 break;
             case "11":
                 Message lowCharge = new Message("", getTime(), "Your mailbox is low on battery!",
                         getResources().getDrawable(R.mipmap.lowbattery1), getResources().getDrawable(R.drawable.btn_red), View.VISIBLE);
-                msgList.add(lowCharge);
-                Collections.reverse(msgList);
+                add(lowCharge);
                 break;
             case "14":
                 Message locationChanged = new Message("", getTime(), "Someone tried to move your mailbox!",
                         getResources().getDrawable(R.mipmap.camera1), getResources().getDrawable(R.drawable.btn_red), View.VISIBLE);
-                msgList.add(locationChanged);
-                Collections.reverse(msgList);
+                add(locationChanged);
                 break;
             case "19":
                 Message connect = new Message("", getTime(), "Connected with your mailbox!",
                         getResources().getDrawable(R.mipmap.connect1), getResources().getDrawable(R.drawable.btn_1), View.VISIBLE);
-                msgList.add(connect);
-                Collections.reverse(msgList);
+                add(connect);
                 break;
             case "20":
                 Message disconnect = new Message("", getTime(), "Lost connection with your mailbox!",
                         getResources().getDrawable(R.mipmap.disconnect1), getResources().getDrawable(R.drawable.btn_red), View.VISIBLE);
-                msgList.add(disconnect);
-                Collections.reverse(msgList);
+                add(disconnect);
                 break;
             case "23":
                 Message resetPassword = new Message("", getTime(), "Reset password successfully!",
                         getResources().getDrawable(R.mipmap.reset1), getResources().getDrawable(R.drawable.btn_green), View.VISIBLE);
-                msgList.add(resetPassword);
-                Collections.reverse(msgList);
+                add(resetPassword);
                 break;
             case "25":
                 Message readyUpdate = new Message("", getTime(), "Software is ready for update!",
                         getResources().getDrawable(R.mipmap.update1), getResources().getDrawable(R.drawable.btn_1), View.VISIBLE);
-                msgList.add(readyUpdate);
-                Collections.reverse(msgList);
+                add(readyUpdate);
                 break;
             case "17":
                 Message paired = new Message("", getTime(), "Mailbox has been added to your account!",
                         getResources().getDrawable(R.mipmap.addmailbox1), getResources().getDrawable(R.drawable.btn_green), View.VISIBLE);
-                msgList.add(paired);
-                Collections.reverse(msgList);
+                add(paired);
                 break;
             case "18":
                 Message removed = new Message("", getTime(), "Mailbox has been removed from your account",
                         getResources().getDrawable(R.mipmap.removemailbox1), getResources().getDrawable(R.drawable.btn_1), View.VISIBLE);
-                msgList.add(removed);
-                Collections.reverse(msgList);
+                add(removed);
                 break;
             case "12":
                 Message noCharge = new Message("", getTime(), "Mailbox stops working due to low battery.",
                         getResources().getDrawable(R.mipmap.dead1), getResources().getDrawable(R.drawable.btn_red), View.VISIBLE);
-                msgList.add(noCharge);
-                Collections.reverse(msgList);
+                add(noCharge);
                 break;
             case "OK":
                 Message ok = new Message("", getTime(), "Succeed: Test Case",
                         getResources().getDrawable(R.mipmap.hand1), getResources().getDrawable(R.drawable.btn_green), View.VISIBLE);
-                msgList.add(ok);
-                Collections.reverse(msgList);
+                add(ok);
                 break;
             default:
                 Message test = new Message("", getTime(), content,
                         getResources().getDrawable(R.mipmap.hand1), getResources().getDrawable(R.drawable.btn_1), View.VISIBLE);
-                msgList.add(test);
-                Collections.reverse(msgList);
+                add(test);
                 break;
         }
     }

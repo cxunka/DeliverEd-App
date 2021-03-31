@@ -116,6 +116,7 @@ public class AddDeviceActivity extends AppCompatActivity {
                 id = null;
                 textView.setText("waiting for response...");
                 startActivity(intent);
+                Variable.added = true;
             }
         });
         Adddevice = findViewById(R.id.Adddevice);

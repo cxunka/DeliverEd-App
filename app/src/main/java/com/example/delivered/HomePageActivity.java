@@ -48,6 +48,8 @@ public class HomePageActivity extends AppCompatActivity {
 
     private TextView t1, t2, t3;
 
+    private String action;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +76,7 @@ public class HomePageActivity extends AppCompatActivity {
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(HomePageActivity.this, pair1, pair2, pair3);
                 Intent intent = new Intent(HomePageActivity.this, AlertsActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent.putExtra("msg", action);
                 ActivityCompat.startActivity(HomePageActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -162,6 +165,8 @@ public class HomePageActivity extends AppCompatActivity {
                 Post post = new Post();
                 post.run(1);
                 Toast.makeText(HomePageActivity.this, "Successfully open device!", Toast.LENGTH_SHORT).show();
+                action = "unlock";
+                Variable.unlocked = true;
             }
         });
         open1.setOnClickListener(new View.OnClickListener() {
@@ -169,6 +174,8 @@ public class HomePageActivity extends AppCompatActivity {
                 Post post = new Post();
                 post.run(1);
                 Toast.makeText(HomePageActivity.this, "Successfully open device!", Toast.LENGTH_SHORT).show();
+                action = "unlock";
+                Variable.unlocked = true;
             }
         });
         open2.setOnClickListener(new View.OnClickListener() {
@@ -176,6 +183,8 @@ public class HomePageActivity extends AppCompatActivity {
                 Post post = new Post();
                 post.run(1);
                 Toast.makeText(HomePageActivity.this, "Successfully open device!", Toast.LENGTH_SHORT).show();
+                action = "unlock";
+                Variable.unlocked = true;
             }
         });
 
@@ -191,6 +200,8 @@ public class HomePageActivity extends AppCompatActivity {
                 Post post = new Post();
                 post.run(0);
                 Toast.makeText(HomePageActivity.this, "Successfully lock device!", Toast.LENGTH_SHORT).show();
+                action = "lock";
+                Variable.locked = true;
             }
         });
         close1.setOnClickListener(new View.OnClickListener() {
@@ -199,6 +210,8 @@ public class HomePageActivity extends AppCompatActivity {
                 Post post = new Post();
                 post.run(0);
                 Toast.makeText(HomePageActivity.this, "Successfully lock device!", Toast.LENGTH_SHORT).show();
+                action = "lock";
+                Variable.locked = true;
             }
         });
         close2.setOnClickListener(new View.OnClickListener() {
@@ -207,6 +220,8 @@ public class HomePageActivity extends AppCompatActivity {
                 Post post = new Post();
                 post.run(0);
                 Toast.makeText(HomePageActivity.this, "Successfully lock device!", Toast.LENGTH_SHORT).show();
+                action = "lock";
+                Variable.locked = true;
             }
         });
 
@@ -218,6 +233,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 r0.setVisibility(GONE);
+                Variable.removed = true;
             }
         });
 
@@ -225,6 +241,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 r1.setVisibility(GONE);
+                Variable.removed = true;
             }
         });
 
@@ -232,6 +249,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 r2.setVisibility(GONE);
+                Variable.removed = true;
             }
         });
 
@@ -265,58 +283,5 @@ public class HomePageActivity extends AppCompatActivity {
                 id = null;
             }
         }
-//        Toast.makeText(HomePageActivity.this,id,Toast.LENGTH_SHORT).show();
-//        if (id != null){
-//            switch (id) {
-//                case "DHome \n          123456":
-//                    DHome.setVisibility(GONE);
-//                    id = null;
-//                    break;
-//                case "DHome \n          00001":
-//                    btn_D1.setVisibility(GONE);
-//                    id = null;
-//                    break;
-//                case "DHome \n          00002":
-//                    btn_D2.setVisibility(GONE);
-//                    id = null;
-//                    break;
-//                case "DHome \n          00003":
-//                    btn_D3.setVisibility(GONE);
-//                    id = null;
-//                    break;
-//                case "DHome \n          00004":
-//                    btn_D4.setVisibility(GONE);
-//                    id = null;
-//                    break;
-//                default:
-//                    if (DHome.getVisibility() == GONE) {
-//                        DHome.setVisibility(VISIBLE);
-//                        String str = "DHome \n          " + id;
-//                        DHome.setText(str);
-//                        id = null;
-//                    } else if (btn_D1.getVisibility() == GONE) {
-//                        btn_D1.setVisibility(VISIBLE);
-//                        String str = "DHome \n          " + id;
-//                        btn_D1.setText(str);
-//                        id = null;
-//                    } else if (btn_D2.getVisibility() == GONE) {
-//                        btn_D2.setVisibility(VISIBLE);
-//                        String str = "DHome \n          " + id;
-//                        btn_D2.setText(str);
-//                        id = null;
-//                    } else if (btn_D3.getVisibility() == GONE) {
-//                        btn_D3.setVisibility(VISIBLE);
-//                        String str = "DHome \n          " + id;
-//                        btn_D3.setText(str);
-//                        id = null;
-//                    } else if (btn_D4.getVisibility() == GONE) {
-//                        btn_D4.setVisibility(VISIBLE);
-//                        String str = "DHome \n          " + id;
-//                        btn_D4.setText(str);
-//                        id = null;
-//                    }
-//                    break;
-//            }
-//        }
     }
 }

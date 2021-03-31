@@ -64,8 +64,9 @@
             android:text="Test"
             android:layout_weight="0.5"
             android:textSize="20sp"
-            android:visibility="visible"
-            android:background="#6C8AC9"/>
+            android:visibility="gone"
+            android:background="#6C8AC9"
+            />
 
     </LinearLayout>
 

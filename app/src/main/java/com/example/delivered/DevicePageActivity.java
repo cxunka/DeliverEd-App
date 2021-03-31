@@ -39,6 +39,7 @@ public class DevicePageActivity extends AppCompatActivity {
     private TextView mainpage,notification,account;
     private TextView home,DHome;
     private Button btn_3;
+    private String action;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,8 @@ public class DevicePageActivity extends AppCompatActivity {
                 Post post = new Post();
                 post.run(1);
                 Toast.makeText(DevicePageActivity.this, "Successfully open device!", Toast.LENGTH_SHORT).show();
+                action = "unlock";
+                Variable.unlocked = true;
             }
         });
         lock_device = findViewById(R.id.lock_device);
@@ -86,6 +89,8 @@ public class DevicePageActivity extends AppCompatActivity {
                 Post post = new Post();
                 post.run(0);
                 Toast.makeText(DevicePageActivity.this, "Successfully lock device!", Toast.LENGTH_SHORT).show();
+                action = "lock";
+                Variable.locked = true;
             }
         });
         open_device.setTypeface(tf);
@@ -117,6 +122,7 @@ public class DevicePageActivity extends AppCompatActivity {
                 ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(DevicePageActivity.this, pair1);
                 Intent intent = new Intent(DevicePageActivity.this, AlertsActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent.putExtra("msg", action);
                 ActivityCompat.startActivity(DevicePageActivity.this, intent, transitionActivityOptions.toBundle());
             }
         });
@@ -145,6 +151,7 @@ public class DevicePageActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 intent.putExtra("msg","remove r0");
                 startActivity(intent);
+                Variable.removed = true;
             }
         });
         btn_3.setTypeface(tf);
